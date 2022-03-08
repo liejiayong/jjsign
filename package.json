@@ -1,0 +1,51 @@
+{
+  "name": "jjsign",
+  "version": "1.0.0",
+  "description": "jjsign actions",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "commit": "git-cz",
+    "release": "release-it",
+    "test": "node test/test.js",
+    "build": "esbuild --bundle index.js --format=cjs --platform=node --outfile=dist/index.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liejiayong/jjsign.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liejiayong/jjsign.git/issues"
+  },
+  "homepage": "https://github.com/liejiayong/jjsign.git#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "axios": "^0.24.0",
+    "nodemailer": "^6.7.2"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "release: release v${version}"
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    }
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^4.1.0",
+    "esbuild": "^0.14.10",
+    "git-cz": "^4.8.0",
+    "release-it": "^14.12.1"
+  }
+}
